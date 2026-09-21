@@ -47,12 +47,72 @@ The frontend decode module `ID0` handles the **RISC-V C** (Compressed 16-bit ins
 * **Unaligned Stream Alignment**: The decoder ingests raw instruction "blobs" from the prefetch queue, dynamically identifying and parsing mixed 16-bit and 32-bit instructions without introducing fetch pipeline bubbles.
 * **Micro-operation ($\mu\text{op}$) Normalization**: Complex macro-instructions are expanded into single or simple multi-$\mu\text{ops}$ with uniform control formats. This simplifies downstream register renaming and reservation station allocation by keeping the issue stage homogeneous.
 
-### 2. The TileTable Dependency Engine
+### 2. The TileTable Wakeup Engine
 
-The **TileTable** is a flagship innovation of this design, introduced to optimize resource allocation and hazard checking:
+The TileTable (`rtl/src/ooo_extension/TileTable.sv`) is the operand-wakeup network of the
+out-of-order back end. Renaming has already removed WAR/WAW hazards; the TileTable resolves
+the remaining RAW dependencies by telling the reservation stations which source operands
+became ready. It replaces the per-slot tag comparators of a classic Tomasulo RS with a small
+shared CAM of *pending wakeups*.
 
-* **Grid-Based Dependency Tracking**: Rather than relying exclusively on a monolithic Register Alias Table ($RAT$), the TileTable organizes mapping between architectural registers ($R_0, R_1, \dots, R_{31}$) and physical registers ($P_0, P_1, \dots, P_N$) inside a 2D tile matrix.
-* **Parallel Hardware Hazard Mitigation**: The spatial grid architecture enables simultaneous detection of $RAW$ (Read-After-Write), $WAR$ (Write-After-Read), and $WAW$ (Write-After-Write) hazards with optimized $O(N \cdot M)$ area complexity, significantly reducing critical path latency during high-width Dispatch/Issue cycles.
+#### Tiles
+The RS operand slots form a grid: `NRALUOP` stations × `RES_DEPTH` entries × `RES_WIDTH_DIM`
+(=2) operands; with the defaults that is 8 × 8 × 2 = 128 cells. The grid is split into
+**tiles** of `CELL_PER_TILE` (=4) cells, i.e. 2 consecutive RS entries × {Rs1, Rs2}.
+A TileTable entry addresses one tile, not one cell:
+
+| Field       | Width (default) | Meaning                                               |
+|-------------|-----------------|-------------------------------------------------------|
+| `Valid`     | 1               | entry in use                                          |
+| `Rs_id`     | `ADDR_WIDTH` (5)| physical source tag being waited on                   |
+| `Tile_ptr`  | 3 + 2           | `{RS id, tile index within the RS}`                   |
+| `Tile_view` | 4               | one-hot/multi-hot mask of the waiting cells in the tile|
+
+Cell order inside a tile is `{entry(2k+1).Rs2, entry(2k+1).Rs1, entry(2k).Rs2, entry(2k).Rs1}`
+(LSB = Rs1 of the even entry). One entry can therefore wake up to 4 operands that wait on
+the same physical register in the same tile. With `TT_ENTRIES = 20` the table tracks 20
+(tag, tile) pairs rather than 128 per-cell comparators.
+
+#### Insertion (Encoder → TileTable)
+When a µop is written into an RS, `Encoder` builds up to two entries (Rs1, Rs2):
+- `Tile_ptr = (RS_id << 2) + (entry_idx >> 1)`, `Tile_view = 01/10 << 2·(entry_idx & 1)`.
+- If `Rs1 == Rs2`, a single entry with view `11` is emitted.
+- An entry is **not** inserted when the operand is already valid in the PRF
+  (`PRF_ready_valid_o`), when Rs2 is an immediate, or when `Rs_id == 0` (x0).
+
+Inside the TileTable, each incoming entry is CAM-matched on `(Rs_id, Tile_ptr)`:
+- **hit**: its `Tile_view` is OR-merged into the existing entry (`merge_vects`);
+- **miss**: a free slot is allocated. `N_IN_ENTRY_PORTS` (= 2·NRALUOP) chained
+  `rr_arb_tree`s (fixed priority, `rr_i = 0`) each take the lowest free slot not already
+  claimed by a lower-numbered port.
+
+#### Wakeup (TileTable → Res_valid_generation → RS)
+Every cycle, the `NRALUOP` destination tags leaving the ALUs (`Rd_in`) are compared against all
+entries. On a hit the entry is emitted on its own `Clos_pkg_o[j]` port (`Valid, Tile_ptr,
+Tile_view`) and cleared in the same cycle. `Res_valid_generation` decodes
+`Tile_ptr` into an RS id and a bit offset (`tile·4`) and ORs `Tile_view` into that station's
+16-bit `Tag_valid_in` vector. Each RS then sets the corresponding `RAT_Entry[k].Valid` bits.
+One output port per entry means all entries can fire in the same cycle.
+
+If an incoming entry's tag matches a tag being broadcast in the same cycle, the entry is
+dropped rather than stored; the operand is expected to be marked valid by the bypass in
+`ooo_extension.sv`.
+
+The `Clos_pkg_t` name reflects the intended scaling path: wakeup packets routed to the
+stations over the Clos network in `rtl/src/Clos_NoC/`. Today they are decoded directly by
+`Res_valid_generation`.
+
+#### Design assumptions
+1. **At most one RS write per station per cycle.** So two inputs in one cycle never carry
+   the same `(Rs_id, Tile_ptr)`. The merge path assigns, not ORs, when two inputs hit the
+   same entry; it relies on this.
+2. **The table never overflows.** There is no full/ready output and no stall path.
+   `TT_ENTRIES` must be sized for the worst-case number of in-flight distinct (tag, tile) pairs.
+3. **Physical tag 0 is hard-wired to x0** and is always ready.
+4. **A physical tag is broadcast only once per allocation**, so a stale `Rd_in` never
+   matches a newer consumer.
+5. **Freed slots are reusable only on the next cycle.** Allocation looks at the registered state.
+6. **Parameters are only consistent at the defaults** (see Known limitations).
 
 ### 3. Decoupled AXI4 Memory Interface & Store Forwarding
 
