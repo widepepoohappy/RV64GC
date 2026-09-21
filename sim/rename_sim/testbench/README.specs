@@ -1,0 +1,3 @@
+Rs: 0, is_imm: 1, exec time -> 4 cc
+Rs: x, is_imm: 0, (tiletable answers immediately) exec time -> 4 cc
+Rs: x, is_imm: 0, (tiletable does not answer) exec time -> indef cc (depends on previous operations)

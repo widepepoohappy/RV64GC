@@ -1,0 +1,1 @@
+../../../rtl/src/decode/blob_decoder/blob_decoder.sv

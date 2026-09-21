@@ -1,0 +1,100 @@
+`ifndef RS_DEPTH
+`define RS_DEPTH 8
+`endif // RS_DEPTH
+
+`ifndef NRALUOP
+`define NRALUOP 8
+`endif // NRALUOP
+
+`ifndef RS_WIDTH_DIM
+`define RS_WIDTH_DIM 2
+`endif // RS_WIDTH_DIM
+
+`ifndef PRF_DEPTH
+`define PRF_DEPTH 32
+`endif // PRF_DEPTH
+
+`ifndef ADDR_WIDTH
+`define ADDR_WIDTH $clog2(`PRF_DEPTH)
+`endif // ADDR_WIDTH
+
+`ifndef NUMBER_OF_TILES
+`define NUMBER_OF_TILES 32
+`endif // NUMBER_OF_TILES
+
+`ifndef CELL_PER_TILE
+`define CELL_PER_TILE 4
+`endif // CELL_PER_TILE
+
+`ifndef ROW_PER_TILE
+`define ROW_PER_TILE  `RS_DEPTH/`CELL_PER_TILE
+`endif // ROW_PER_TILE
+
+`define TILES_PER_RS_DIV_2 (`CELL_PER_TILE/2)
+`define TILE_PTR_SIZE $clog2(`NRALUOP)+ `TILES_PER_RS_DIV_2
+
+`ifndef DATA_WIDTH
+`define DATA_WIDTH 32
+`endif // DATA_WIDTH
+
+`ifndef N_UOP_PER_CYCLE
+`define N_UOP_PER_CYCLE 4
+`endif // N_UOP_PER_CYCLE
+
+`ifndef SIGNALS_SV
+`define SIGNALS_SV
+
+typedef struct packed {
+	logic Valid;
+	logic [`ADDR_WIDTH-1:0] Tag;	
+} RAT_t;
+
+
+typedef struct packed {
+	logic Entry_free;
+	logic is_imm;
+	logic [11:0] Imm;
+	logic [`ADDR_WIDTH-1:0] Rd;
+	RAT_t [`RS_WIDTH_DIM-1:0] RAT_Entry ;
+} rs_entry_t;
+
+typedef struct {
+	logic Valid;
+	RAT_t RAT_Entry [`RS_WIDTH_DIM];
+} rs_out_t;
+
+typedef struct packed {
+	logic Entry_valid;
+	logic [`ADDR_WIDTH-1:0] DestRegID;				// This contain the registers of RF
+	logic [`ADDR_WIDTH-1:0] DestRegVal;			// This contain the value of the dest reg ID
+	logic DestRegWritten;
+	logic EXCEPTION;							// ??
+} ROB_t;
+
+typedef struct packed {
+	logic Valid;
+	logic [`ADDR_WIDTH-1:0] Rs_id;
+	logic [$clog2(`NRALUOP)+`TILES_PER_RS_DIV_2-1:0] Tile_ptr;
+	logic [`CELL_PER_TILE-1:0] Tile_view;
+} TileTable_entry_t;
+
+typedef struct packed {
+	logic Valid;
+	logic [`ADDR_WIDTH-1:0] Rs_id;
+	logic [$clog2(`NRALUOP)+`TILES_PER_RS_DIV_2-1:0] Tile_ptr;
+	logic [`CELL_PER_TILE-1:0] Tile_view;
+} Encoded_entry_t;
+
+typedef struct packed {	
+	logic Valid;
+	logic [`TILE_PTR_SIZE-1:0] Tile_ptr;
+	logic [`CELL_PER_TILE-1:0] Tile_view;
+} Clos_pkg_t;
+
+typedef struct packed {	
+	logic [`ADDR_WIDTH-1:0] Rd;
+	logic [`DATA_WIDTH-1:0] Val1;
+	logic [`DATA_WIDTH-1:0] Val2;
+} FU_entry_t;
+
+`endif

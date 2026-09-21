@@ -1,0 +1,41 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Logical operator ASSERT expects 1 bit on the Property, but Property's VARREF 'NumIn' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal is not used: 'rr_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal is not driven, nor used: 'lower_empty'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/lzc.sv" -match "Bits of signal are not driven, nor used: 'sel_nodes'[3]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/lzc.sv" -match "Bits of signal are not driven, nor used: 'index_nodes'[7:6]*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule SYNCASYNCNET -file "*/home/cclement/RISCV/silverstream/rtl/src/rename/rn_stage/rn_stage.sv" -match "Signal flopped as both synchronous and async: 'rst_ni'*"
+

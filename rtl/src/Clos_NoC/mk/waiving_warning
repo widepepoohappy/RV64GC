@@ -1,0 +1,73 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Logical operator ASSERT expects 1 bit on the Property, but Property's VARREF 'NumIn' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Logical operator ASSERT expects 1 bit on the Property, but Property's VARREF 'NumIn' generates 32 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Operator LT expects 32 bits on the LHS, but LHS's SEL generates 2 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Operator LT expects 32 bits on the LHS, but LHS's SEL generates 2 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Operator LT expects 32 bits on the LHS, but LHS's SEL generates 2 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Operator LT expects 32 bits on the LHS, but LHS's SEL generates 2 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Operator LT expects 32 bits on the LHS, but LHS's SEL generates 2 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 3 bits on the pin connection, but pin connection's VARREF 'do_not_connect_in_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 3 bits on the pin connection, but pin connection's VARREF 'do_not_connect_in_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 3 bits on the pin connection, but pin connection's VARREF 'do_not_connect_mid_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 3 bits on the pin connection, but pin connection's VARREF 'do_not_connect_mid_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 3 bits on the pin connection, but pin connection's VARREF 'do_not_connect_mid_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 6 bits on the pin connection, but pin connection's VARREF 'do_not_connect_out_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 6 bits on the pin connection, but pin connection's VARREF 'do_not_connect_out_idx' generates 1 bits.*"
+
+ lint_off -rule WIDTHEXPAND -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Output port connection 'idx_o' expects 6 bits on the pin connection, but pin connection's VARREF 'do_not_connect_out_idx' generates 1 bits.*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Signal is not used: 'do_not_connect_in_idx'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Signal is not used: 'do_not_connect_mid_idx'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/Clos_NoC/Clos_NoC.sv" -match "Signal is not used: 'do_not_connect_out_idx'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Signal is not used: 'rr_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Signal is not driven, nor used: 'lower_empty'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Signal is not driven, nor used: 'sel'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/lzc.sv" -match "Bits of signal are not driven, nor used: 'sel_nodes'[1]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/lzc.sv" -match "Bits of signal are not driven, nor used: 'index_nodes'[1]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/spill_register_flushable.sv" -match "Signal is not used: 'clk_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/spill_register_flushable.sv" -match "Signal is not used: 'rst_ni'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/spill_register_flushable.sv" -match "Signal is not used: 'flush_i'*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule SYNCASYNCNET -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Signal flopped as both synchronous and async: 'Clos_NoC.gen_inp_sw[0].input_xbar.rst_ni'*"
+
+ lint_off -rule SYNCASYNCNET -file "*/home/cclement/RISCV/silverstream/rtl/include/primitives/stream_xbar.sv" -match "Signal flopped as both synchronous and async: 'Clos_NoC.gen_out_sw[0].input_xbar.rst_ni'*"
+

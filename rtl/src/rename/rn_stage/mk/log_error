@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%Warning-UNUSEDPARAM: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:24:26: Parameter is not used: 'PRF_MEMSIZE'
+                                                                                                                  : ... note: In instance 'ooo_extension'
+   24 |   parameter int unsigned PRF_MEMSIZE = PRF_DEPTH*8,
+      |                          ^~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.043
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:119:47: Bits of signal are not used: 'ENC_Rs1_in'[47:40]
+                                                                                                                    : ... note: In instance 'ooo_extension'
+  119 |   logic [NRALUOP-1:0][ADDR_WIDTH:0]           ENC_Rs1_in, ENC_Rs2_in;
+      |                                               ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.043
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:119:59: Bits of signal are not used: 'ENC_Rs2_in'[47:40]
+                                                                                                                    : ... note: In instance 'ooo_extension'
+  119 |   logic [NRALUOP-1:0][ADDR_WIDTH:0]           ENC_Rs1_in, ENC_Rs2_in;
+      |                                                           ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv:17:38: Bits of signal are not used: 'ALUControl'[2:1]
+                                                                                           : ... note: In instance 'ooo_extension.genblk1[0].PE_u'
+   17 |     input wire [$clog2(NRALUOP)-1:0] ALUControl
+      |                                      ^~~~~~~~~~
+                       /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:371:1: ... note: In file included from 'ooo_extension.sv'
+%Warning-UNUSEDPARAM: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/TileTable.sv:16:30: Parameter is not used: 'CELL_PER_TILE'
+                                                                                                : ... note: In instance 'ooo_extension.TileTable_u'
+   16 |     parameter int   unsigned CELL_PER_TILE = 4,
+      |                              ^~~~~~~~~~~~~
+                      /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:417:1: ... note: In file included from 'ooo_extension.sv'
+%Warning-UNUSEDPARAM: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/TileTable.sv:17:30: Parameter is not used: 'RS_NUMBER'
+                                                                                                : ... note: In instance 'ooo_extension.TileTable_u'
+   17 |     parameter int   unsigned RS_NUMBER = 7,
+      |                              ^~~~~~~~~
+                      /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:417:1: ... note: In file included from 'ooo_extension.sv'
+%Warning-UNUSEDPARAM: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/TileTable.sv:18:30: Parameter is not used: 'RS_DEPTH'
+                                                                                                : ... note: In instance 'ooo_extension.TileTable_u'
+   18 |     parameter int   unsigned RS_DEPTH = 8,
+      |                              ^~~~~~~~
+                      /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:417:1: ... note: In file included from 'ooo_extension.sv'
+%Warning-UNUSEDPARAM: /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/TileTable.sv:19:29: Parameter is not used: 'RS_WIDTH_DIM'
+                                                                                                : ... note: In instance 'ooo_extension.TileTable_u'
+   19 |    parameter int   unsigned RS_WIDTH_DIM = 2,
+      |                             ^~~~~~~~~~~~
+                      /home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:417:1: ... note: In file included from 'ooo_extension.sv'

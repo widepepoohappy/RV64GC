@@ -1,0 +1,13 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+// lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'j' generates 32 bits.*write_entry_idx[j] = j;*_WARNMORE__/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:498:1: ... note: In file included from 'ooo_extension.sv'*"
+
+// lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Bits of signal are not used: 'ALUControl'[2:1]*input wire [$clog2(NRALUOP)-1:0] ALUControl*_WARNMORE__/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv:371:1: ... note: In file included from 'ooo_extension.sv'*"
+

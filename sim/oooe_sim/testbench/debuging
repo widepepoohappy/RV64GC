@@ -1,0 +1,104 @@
+Performing uOp 0 for cycle 0: 19 (Rd) <- 0 (Rs1) + 27 (Rs2) + 5 (Imm): 0 + 0 + 5 =  5
+Performing uOp 1 for cycle 0: 16 (Rd) <- 0 (Rs1) - 12 (Rs2) - 8 (Imm): 0 - 0 - 8 =  -8
+Performing uOp 2 for cycle 0: 18 (Rd) <- 0 (Rs1) &  30 (Rs2)  &  2 (Imm): 0 & 0 & 2 =  0
+Performing uOp 3 for cycle 0: 21 (Rd) <- 0 (Rs1) | 18 (Rs2) | 6 (Imm): 0 | 0 | 6 =  6
+Performing uOp 0 for cycle 1: 18 (Rd) <- 24 (Rs1) >> 27 (Rs2) >> 5 (Imm): 0 >> 0 >> 5 =  0
+Performing uOp 1 for cycle 1: 10 (Rd) <- 15 (Rs1) < 23 (Rs2) < 8 (Imm): 0 < 0 < 8 =  None
+Performing uOp 2 for cycle 1: 11 (Rd) <- 14 (Rs1) > 17 (Rs2) > 2 (Imm): 0 > 0 > 2 =  None
+Performing uOp 3 for cycle 1: 26 (Rd) <- 3 (Rs1) ^ 21 (Rs2) ^ 6 (Imm): 0 ^ 0 ^ 6 =  None
+Performing uOp 0 for cycle 2: 24 (Rd) <- 22 (Rs1) + 25 (Rs2) + 5 (Imm): 0 + 0 + 5 =  None
+Performing uOp 1 for cycle 2: 8 (Rd) <- 10 (Rs1) - 26 (Rs2) - 8 (Imm): 0 - 0 - 8 =  None
+Performing uOp 2 for cycle 2: 9 (Rd) <- 15 (Rs1) &  28 (Rs2)  &  2 (Imm): 0 & 0 & 2 =  None
+Performing uOp 3 for cycle 2: 19 (Rd) <- 7 (Rs1) | 7 (Rs2) | 6 (Imm): 0 | 0 | 6 =  None
+Performing uOp 0 for cycle 3: 12 (Rd) <- 7 (Rs1) >> 4 (Rs2) >> 5 (Imm): 0 >> 0 >> 5 =  0
+Performing uOp 1 for cycle 3: 16 (Rd) <- 13 (Rs1) < 16 (Rs2) < 8 (Imm): 0 < 0 < 8 =  None
+Performing uOp 2 for cycle 3: 6 (Rd) <- 19 (Rs1) > 19 (Rs2) > 2 (Imm): 5 > 0 > 2 =  False
+Performing uOp 3 for cycle 3: 27 (Rd) <- 3 (Rs1) ^ 20 (Rs2) ^ 6 (Imm): 0 ^ 0 ^ 6 =  None
+Performing uOp 0 for cycle 4: 8 (Rd) <- 16 (Rs1) + 14 (Rs2) + 5 (Imm): -8 + 0 + 5 =  -3
+Performing uOp 1 for cycle 4: 9 (Rd) <- 4 (Rs1) - 24 (Rs2) - 8 (Imm): 0 - 0 - 8 =  None
+Performing uOp 2 for cycle 4: 6 (Rd) <- 26 (Rs1) &  13 (Rs2)  &  2 (Imm): 0 & 0 & 2 =  None
+Performing uOp 3 for cycle 4: 2 (Rd) <- 1 (Rs1) | 17 (Rs2) | 6 (Imm): 0 | 0 | 6 =  None
+Performing uOp 0 for cycle 5: 7 (Rd) <- 9 (Rs1) >> 5 (Rs2) >> 5 (Imm): 0 >> 0 >> 5 =  0
+Performing uOp 1 for cycle 5: 28 (Rd) <- 20 (Rs1) < 2 (Rs2) < 8 (Imm): 0 < 0 < 8 =  None
+Performing uOp 2 for cycle 5: 9 (Rd) <- 21 (Rs1) > 12 (Rs2) > 2 (Imm): 6 > 0 > 2 =  False
+Performing uOp 3 for cycle 5: 25 (Rd) <- 15 (Rs1) ^ 13 (Rs2) ^ 6 (Imm): 0 ^ 0 ^ 6 =  None
+Performing uOp 0 for cycle 6: 28 (Rd) <- 27 (Rs1) + 16 (Rs2) + 5 (Imm): 0 + 0 + 5 =  None
+Performing uOp 1 for cycle 6: 8 (Rd) <- 9 (Rs1) - 4 (Rs2) - 8 (Imm): 0 - 0 - 8 =  None
+Performing uOp 2 for cycle 6: 20 (Rd) <- 22 (Rs1) &  9 (Rs2)  &  2 (Imm): 0 & 0 & 2 =  None
+Performing uOp 3 for cycle 6: 14 (Rd) <- 24 (Rs1) | 8 (Rs2) | 6 (Imm): 0 | 0 | 6 =  None
+Performing uOp 0 for cycle 7: 20 (Rd) <- 0 (Rs1) + 24 (Rs2) + 2 (Imm): 0 + 0 + 2 =  2
+Performing uOp 1 for cycle 7: 3 (Rd) <- 25 (Rs1) < 12 (Rs2) < 0 (Imm): 0 < 0 < 0 =  None
+Performing uOp 2 for cycle 7: 29 (Rd) <- 10 (Rs1) > 7 (Rs2) > 0 (Imm): 0 > 0 > 0 =  None
+Performing uOp 3 for cycle 7: 15 (Rd) <- 7 (Rs1) ^ 25 (Rs2) ^ 0 (Imm): 0 ^ 0 ^ 0 =  None
+Performing uOp 0 for cycle 8: 9 (Rd) <- 10 (Rs1) + 29 (Rs2) + 2 (Imm): 0 + 0 + 2 =  None
+Performing uOp 1 for cycle 8: 16 (Rd) <- 8 (Rs1) - 24 (Rs2) - 0 (Imm): 0 - 0 - 0 =  None
+Performing uOp 2 for cycle 8: 6 (Rd) <- 17 (Rs1) &  17 (Rs2)  &  0 (Imm): 0 & 0 & 0 =  None
+Performing uOp 3 for cycle 8: 28 (Rd) <- 6 (Rs1) | 19 (Rs2) | 0 (Imm): True | 5 | 0 =  5
+Performing uOp 0 for cycle 9: 11 (Rd) <- 8 (Rs1) >> 22 (Rs2) >> 2 (Imm): 0 >> 0 >> 2 =  0
+Performing uOp 1 for cycle 9: 9 (Rd) <- 14 (Rs1) < 20 (Rs2) < 0 (Imm): 0 < 0 < 0 =  None
+Performing uOp 2 for cycle 9: 12 (Rd) <- 29 (Rs1) > 7 (Rs2) > 0 (Imm): 0 > 0 > 0 =  None
+Performing uOp 3 for cycle 9: 23 (Rd) <- 30 (Rs1) ^ 24 (Rs2) ^ 0 (Imm): 0 ^ 0 ^ 0 =  None
+Performing uOp 0 for cycle 10: 19 (Rd) <- 9 (Rs1) + 2 (Rs2) + 2 (Imm): True + 0 + 2 =  3
+Performing uOp 1 for cycle 10: 28 (Rd) <- 30 (Rs1) - 16 (Rs2) - 0 (Imm): 0 - -8 - 0 =  None
+Performing uOp 2 for cycle 10: 4 (Rd) <- 10 (Rs1) &  11 (Rs2)  &  0 (Imm): 0 & 0 & 0 =  None
+Performing uOp 3 for cycle 10: 24 (Rd) <- 29 (Rs1) | 30 (Rs2) | 0 (Imm): 0 | 0 | 0 =  None
+Performing uOp 0 for cycle 11: 9 (Rd) <- 24 (Rs1) >> 10 (Rs2) >> 2 (Imm): 0 >> 0 >> 2 =  1
+Performing uOp 1 for cycle 11: 6 (Rd) <- 9 (Rs1) < 24 (Rs2) < 0 (Imm): True < 0 < 0 =  None
+Performing uOp 2 for cycle 11: 1 (Rd) <- 25 (Rs1) > 2 (Rs2) > 0 (Imm): 0 > 0 > 0 =  None
+Performing uOp 3 for cycle 11: 16 (Rd) <- 22 (Rs1) ^ 15 (Rs2) ^ 0 (Imm): 0 ^ 0 ^ 0 =  None
+Error: sv_PRF and golden PRF content are different! cycle: 5 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 6 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 7 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 8 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 8 entry 9
+Error: sv_PRF and golden PRF content are different! cycle: 9 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 9 entry 8
+Error: sv_PRF and golden PRF content are different! cycle: 9 entry 9
+Error: sv_PRF and golden PRF content are different! cycle: 10 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 10 entry 8
+Error: sv_PRF and golden PRF content are different! cycle: 10 entry 9
+Error: sv_PRF and golden PRF content are different! cycle: 10 entry 20
+Error: sv_PRF and golden PRF content are different! cycle: 11 entry 6
+Error: sv_PRF and golden PRF content are different! cycle: 11 entry 8
+Error: sv_PRF and golden PRF content are different! cycle: 11 entry 9
+Error: sv_PRF and golden PRF content are different! cycle: 11 entry 28
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  0  content of sv PRF:  -3
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  0  content of sv PRF:  -8
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  2  content of sv PRF:  0
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  0  content of sv PRF:  -8
+Content of golden PRF:  True  content of sv PRF:  0
+Content of golden PRF:  5  content of sv PRF:  0
+Golden PRF cycle 0:
+Golden PRF cycle 1:
+Golden PRF cycle 2:
+Golden PRF cycle 3:   entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 4:   entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 5:   entry 6, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 6:   entry 6, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 7:   entry 6, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 8:   entry 6, val -> 1  entry 9, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 9:   entry 6, val -> 1  entry 9, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 21, val -> 6
+Golden PRF cycle 10:   entry 6, val -> 1  entry 9, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 20, val -> 2  entry 21, val -> 6
+Golden PRF cycle 11:   entry 6, val -> 1  entry 9, val -> 1  entry 16, val -> -8  entry 19, val -> 5  entry 20, val -> 2  entry 21, val -> 6  entry 28, val -> 5
+SV PRF cycle 0:
+SV PRF cycle 1:
+SV PRF cycle 2:
+SV PRF cycle 3:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 4:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 5:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 6:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 7:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 8:  entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 9:  entry 8, val -> -3 entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 10:  entry 8, val -> -8 entry 16, val -> -8 entry 19, val -> 5 entry 21, val -> 6
+SV PRF cycle 11:  entry 8, val -> -8 entry 16, val -> -8 entry 19, val -> 5 entry 20, val -> 2 entry 21, val -> 6

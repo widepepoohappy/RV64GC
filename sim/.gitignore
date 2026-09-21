@@ -1,0 +1,3 @@
+riscv-dv/
+obj_dir/
+*.vcd/

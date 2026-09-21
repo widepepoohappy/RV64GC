@@ -1,0 +1,1 @@
+../../../rtl/src/core/core.sv

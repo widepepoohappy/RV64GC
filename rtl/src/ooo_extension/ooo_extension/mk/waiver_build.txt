@@ -1,0 +1,100 @@
+// DESCRIPTION: Verilator output: Waivers generated with --waiver-output
+
+`verilator_config
+
+// Below are suggested waivers. You have three options:
+//   1. Fix the reason for the linter warning in the Verilog sources
+//   2. Keep the waiver permanently if you are sure it is okay
+//   3. Keep the waiver temporarily to suppress the output
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'SINGLE_UNIT' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/stream_br_xbar.sv" -match "Logical operator GENIF expects 1 bit on the If, but If's VARREF 'AxiVldRdy' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Operator VAR 'ExtPrio' expects 1 bits on the Initial value, but Initial value's CONST '32'h0' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Operator VAR 'AxiVldRdy' expects 1 bits on the Initial value, but Initial value's CONST '32'h0' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Operator VAR 'LockIn' expects 1 bits on the Initial value, but Initial value's CONST '32'h0' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Logical operator ASSERT expects 1 bit on the Property, but Property's VARREF 'NumIn' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Logical operator ASSERT expects 1 bit on the Property, but Property's VARREF 'NumIn' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/Encoder.sv" -match "Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's SEL generates 3 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/Encoder.sv" -match "Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's SEL generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/Encoder.sv" -match "Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's SEL generates 5 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv" -match "Operator ASSIGN expects 2 bits on the Assign RHS, but Assign RHS's SEL generates 7 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/PRF.sv" -match "Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'j' generates 32 bits.*"
+
+ lint_off -rule WIDTHTRUNC -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ooo_extension/ooo_extension.sv" -match "Input port connection 'ALUControl' expects 12 bits on the pin connection, but pin connection's VARREF 'ALUControl' generates 24 bits.*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Bits of signal are not used: 'ALUControl'[3:1]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Bits of signal are not used: 'ALUControl'[2:1]*"
+
+ lint_off -rule UNDRIVEN -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Signal is not driven: 'Cout'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Signal is not used: 'en'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/ALU.sv" -match "Signal is not used: 'op'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/ooo_extension/Res_valid_generation.sv" -match "Signal is not used: 'tile_within_res'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/fulladder.sv" -match "Signal is not used: 'en'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal is not used: 'rr_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal is not driven, nor used: 'lower_empty'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal is not driven, nor used: 'sel'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/lzc.sv" -match "Bits of signal are not driven, nor used: 'sel_nodes'[15]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/lzc.sv" -match "Bits of signal are not driven, nor used: 'index_nodes'[63:60]*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/spill_register_flushable.sv" -match "Signal is not used: 'clk_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/spill_register_flushable.sv" -match "Signal is not used: 'rst_ni'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/spill_register_flushable.sv" -match "Signal is not used: 'flush_i'*"
+
+ lint_off -rule UNUSEDSIGNAL -file "*/home/cclement/RISCV/silverstream/rtl/dep/common_cells/fifo_v3.sv" -match "Signal is not used: 'testmode_i'*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule UNSIGNED -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Comparison is constant due to unsigned arithmetic*"
+
+ lint_off -rule SYNCASYNCNET -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal flopped as both synchronous and async: 'ooo_extension.TileTable_u.genblk3[0].TT_input_arbiter_u.rst_ni'*"
+
+ lint_off -rule SYNCASYNCNET -file "*/home/cclement/RISCV/silverstream/rtl/src/primitives/rr_arb_tree.sv" -match "Signal flopped as both synchronous and async: 'ooo_extension.PRF_pe_xbar_u.gen_outs[0].i_rr_arb_tree.rst_ni'*"
+
+ lint_off -rule SYNCASYNCNET
+
+ lint_off -rule PINCONNECTEMPTY
+
+ lint_off -rule GENUNNAMED
+
+ lint_off -rule UNOPTFLAT
