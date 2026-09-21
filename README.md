@@ -103,16 +103,20 @@ stations over the Clos network in `rtl/src/Clos_NoC/`. Today they are decoded di
 `Res_valid_generation`.
 
 #### Design assumptions
-1. **At most one RS write per station per cycle.** So two inputs in one cycle never carry
+1. **Programs do not depend on single RS**. It is assumed that RSs are not frequently shared across local section of reserver stations.
+    This imply a sparse matrix (that can be seen as the grouped reserve stations), which non zero elements per source registers can be
+    represented by the view of the tile.
+3. **At most one RS write per station per cycle.** So two inputs in one cycle never carry
    the same `(Rs_id, Tile_ptr)`. The merge path assigns, not ORs, when two inputs hit the
    same entry; it relies on this.
-2. **The table never overflows.** There is no full/ready output and no stall path.
+4. **The table never overflows.** There is no full/ready output and no stall path.
    `TT_ENTRIES` must be sized for the worst-case number of in-flight distinct (tag, tile) pairs.
-3. **Physical tag 0 is hard-wired to x0** and is always ready.
-4. **A physical tag is broadcast only once per allocation**, so a stale `Rd_in` never
+5. **Physical tag 0 is hard-wired to x0** and is always ready.
+6. **A physical tag is broadcast only once per allocation**, so a stale `Rd_in` never
    matches a newer consumer.
-5. **Freed slots are reusable only on the next cycle.** Allocation looks at the registered state.
-6. **Parameters are only consistent at the defaults** (see Known limitations).
+7. **Freed slots are reusable only on the next cycle.** Allocation looks at the registered state.
+8. **Parameters are only consistent at the defaults** (see Known limitations).
+
 
 ### 3. Decoupled AXI4 Memory Interface & Store Forwarding
 
