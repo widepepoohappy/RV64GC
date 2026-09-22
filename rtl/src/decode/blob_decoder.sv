@@ -1,6 +1,7 @@
 `include "registers.svh"
 `include "dcd_packages.sv"
 
+// !!!!! LITTLE ENDIAN MODULE !!!!!
 
 module blob_decoder #(
 	// 4 instruction of 32 bits 
@@ -77,32 +78,34 @@ module blob_decoder #(
     // depend from the last 16 bits from the new incoming operation, but they
     // will be physically placed in the last 16 bits of the vector that is
     // being processed to decode the operations)
-		for( int i = 0; i < HW_PER_BLOB; i++) begin
-			
-			if(instr_dcd[i].valid) begin
-        if( {h_parsed[i],h_parsed[i+1]} == 2'b00 ) begin
-					instr_dcd[i].instr_type = COMPRESSED;
-        end else if( {h_parsed[i],h_parsed[i+1]} == 2'b01 ) begin
-          if(h_parsed[i+2] == 1'b1) begin
-            instr_dcd[i].instr_type = COMPRESSED;
-          end else begin
-            instr_dcd[i].instr_type = UNCOMPRESSED;
-            instr_dcd[i+1].valid = 1'b0;
-          end
-        end else if( {h_parsed[i],h_parsed[i+1]} == 2'b10 ) begin
-					instr_dcd[i].instr_type = MISALIGNED;
-        end else if( {h_parsed[i],h_parsed[i+1]} == 2'b11 ) begin
-          instr_dcd[i].instr_type = UNCOMPRESSED;
-          instr_dcd[i+1].valid = 1'b0;
-        end
-        // TODO nel caso che l ultima operazione sia UNCOMPRESSED devo fare in
-        // modo di far uscire i 32 bit tutti insieme, lo posso fare magari
-        // aggiungendo 16 bit all uscita e usarli solo se questo e vero, nel
-        // caso non lo fosse li lascio a 0 (un po uno spreco ma vabbe)
+
+
+//0,0,0,0
+//0,0,0,1		In this case we need to shift the uncompressed operation and bring it to the next operation
+//1,0,0,0,1		Again here we need to bring it to the next cycle
+//1,1,1,1,0		No need to bring to next case
+//new cycle
+//1,0,1,0
+
+  always_comb begin
+	instr_dcd = '0;
+	for ( int i = 0; i < HW_PER_BLOB; i++) begin
+		if ( instr_dcd[i].valid ) begin
+			case({h_parsed[i]}) begin
+			1'b0: begin
+				instr_dcd[i].instr_type = COMPRESSED;
 			end
-		end	
+			1'b1: begin
+				instr_dcd[i+1].valid = 1'b0;
+				instr_dcd[i].instr_type = UNCOMPRESSED;
+			end
+			default: 
+
+		end
 	end
-  
+  end
+
+
   logic is_last_uncompressed;
   assign is_last_uncompressed = instr_dcd[HW_PER_BLOB-1].instr_type == UNCOMPRESSED && instr_dcd[HW_PER_BLOB-1].valid == 1'b1;
 

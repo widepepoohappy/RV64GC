@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
     	/*out_path=*/mem_path,
 	/*bytes_per_line=*/16,
 	/*token_bytes=*/0,
-	/*endian=*/Endian::Big);
+	/*endian=*/Endian::Little);
 
 
     Verilated::commandArgs(argc, argv);
@@ -141,8 +141,9 @@ int main(int argc, char** argv) {
 	    bytes0_to_u128 = pack_u8s_to_u128_be(bytes0);
 	    cout << "Bytes: " << int(bytes0_to_u128) << endl;
 	    for ( int i = 0; i < 16; i++ ) {
-		int index = i%4;
-		top->mem_r_data_i[index] = top->mem_r_data_i[index] | bytes0[i];
+		int index = i/4;
+		int bit_shift = i%4;
+		top->mem_r_data_i[index] = top->mem_r_data_i[index] | (bytes0[i] << 8*bit_shift);
 	    }
 	    offset++;
 	    if(offset == burst_length) {

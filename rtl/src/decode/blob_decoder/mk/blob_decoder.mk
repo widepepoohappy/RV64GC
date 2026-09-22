@@ -22,7 +22,7 @@ DEP_FILES = ${DEP_SVH} ${DEP_PKG} #${DEP_RTL}
 VINCLUDE = -I${RTL_DIR} -I${LOCAL_PRIMITIVES} -I${LOCAL_MODULES_OOOEX} -I${LOCAL_MODULES_RENAME} -I${LOCAL_MODULES_DECODE} -I${COMMON_CELLS_DIR}  
 
 PKG_FILES = -I${OOO_PKGS} ${LOCAL_MODULES_DECODE}/dcd_packages.sv
-VERILATOR_LOCAL_WARNINGSBYPASS = --waiver-multiline waiver_build_prf_waivers waiver_build_dep_files
+VERILATOR_LOCAL_WARNINGSBYPASS = --waiver-multiline ${THIS_MK_DIR}/waiver_build_prf_waivers ${THIS_MK_DIR}/waiver_build_dep_files
 MACROS = ${COMMON_CELLS_SVH}/registers.svh
 
 ###########

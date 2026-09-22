@@ -47,8 +47,10 @@ module sorting_dcd #(
               PIPO_stack_valid_in[i] = 1'b1;
             end
             UNCOMPRESSED: begin
-              PIPO_stack_payload_in[i][BUNIT-1:0] =  instr_i[i+1];
-              PIPO_stack_payload_in[i][BUNIT*2-1:BUNIT] = instr_i[i];
+              // little-endian: lane i holds the low halfword (opcode bits),
+              // lane i+1 the high halfword
+              PIPO_stack_payload_in[i][BUNIT-1:0] =  instr_i[i];
+              PIPO_stack_payload_in[i][BUNIT*2-1:BUNIT] = instr_i[i+1];
               PIPO_stack_valid_in[i] = 1'b1;
             end
             default: begin

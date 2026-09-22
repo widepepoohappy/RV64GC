@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
     	/*out_path=*/mem_path,
 	/*bytes_per_line=*/16,
 	/*token_bytes=*/0,
-	/*endian=*/Endian::Big);
+	/*endian=*/Endian::Little);
 
 
     Verilated::commandArgs(argc, argv);
@@ -144,7 +144,7 @@ int main(int argc, char** argv) {
 		int index = i/4;
 		int bit_shift = i%4;
 		int byte_size = bytes0.size();
-		top->mem_r_data_i[index] = top->mem_r_data_i[index] | (bytes0[byte_size-1-i] << 8*bit_shift);
+		top->mem_r_data_i[index] = top->mem_r_data_i[index] | (bytes0[i] << 8*bit_shift);
 	    }
 	    offset++;
 	    if(offset == burst_length) {

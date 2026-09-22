@@ -1,13 +1,14 @@
 
 MOD_NAME := blob_decoder
+#RTL_MOD_DIR := $(shell find ${WORK_ROOT}/rtl/src -type d -name "${MOD_NAME}")
 MOD_NAME_MK := $(shell find ${WORK_ROOT}/rtl/src/ -type f -name "${MOD_NAME}.mk")
 WAIVERS := $(shell find ${WORK_ROOT}/rtl/src/ -type f -name "waiver_build*")
-
+WAIVERS := ""
 include ${MOD_NAME_MK}
 
 VERILATOR_UTILS := ${WORK_ROOT}/sim/verilator_utils.h
 CPP_UTILS := ${WORK_ROOT}/sim/libs/file_utils.hpp
-VERILATOR_INCLUDES := -I$(VERILATOR_ROOT)/include -I$(VERILATOR_ROOT)/include/vltstd
+VERILATOR_INCLUDES := -I$(VERILATOR_ROOT)/include -I$(VERILATOR_ROOT)/include/vltstd -I${RTL_MOD_DIR}
 #RTL_DIR := $(shell find ${RTL_ROOT}/ -type d -name ${MOD_NAME})
 compile:
 #	${VERILATOR} -Wall  ${VERILATOR_CENTRAL_WARNINGSBYPASS} ${VERILATOR_LOCAL_WARNINGSBYPASS} --trace --top-module ${TOP_MODULE} ${DEP_FILES} ${PKG_FILES} ${RTL_DIR}/${TOP_MODULE}.sv -cc ${MOD_NAME}.v ${VINCLUDE}

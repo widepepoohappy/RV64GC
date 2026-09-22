@@ -115,7 +115,7 @@ module instr_fd #(
 
   always_comb begin
     for (int i = 0; i < INSTR_PARALLELISM; i++) begin
-      BD_instr_i[i] = FTCH_instr_o[(MEM_BUS_WIDTH-1)-(i*BUNIT)-:BUNIT];
+      BD_instr_i[i] = FTCH_instr_o[i*BUNIT +: BUNIT];
     end
     //BD_instr_i = FTCH_instr_o;
     BD_instr_valid_i = FTCH_istr_valid_o;
